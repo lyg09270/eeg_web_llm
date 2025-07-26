@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "🚀 启动智能待办清单前端服务..."
+echo "🚀 启动赛博爹妈前端服务..."
 
 cd frontend
 

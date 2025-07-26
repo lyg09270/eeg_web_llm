@@ -1,7 +1,12 @@
 <template>
   <header class="app-header">
-    <h1> CYBERPARENTS</h1>
-    <p>您最好的赛博爹妈</p>
+    <div class="logo-container">
+      <img src="/logo.jpg" alt="CYBERPARENTS" class="logo-image" />
+      <div class="title-container">
+        <h1>CYBERPARENTS</h1>
+        <p>您最好的赛博爹妈</p>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -17,6 +22,33 @@
   text-shadow: var(--cyber-shadow-neon);
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.logo-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: brightness(1.2) contrast(1.1);
+  border-radius: 15px;
+  background: var(--cyber-glass);
+  padding: 10px;
+  border: 2px solid var(--cyber-neon-cyan);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  animation: logo-glow 3s ease-in-out infinite;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .app-header h1 {
   font-size: 3.2rem;
   margin-bottom: 15px;
@@ -30,7 +62,7 @@
 }
 
 .app-header h1::before {
-  content: ' CYBERPARENTS ';
+  content: 'CYBERPARENTS';
   position: absolute;
   top: 0;
   left: 0;
@@ -48,11 +80,37 @@
   font-weight: 500;
   opacity: 0.9;
   text-shadow: 0 0 10px var(--cyber-neon-cyan);
+  margin: 0;
+}
+
+@keyframes logo-glow {
+  0%, 100% { 
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    border-color: var(--cyber-neon-cyan);
+  }
+  50% { 
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.6);
+    border-color: var(--cyber-neon-purple);
+  }
 }
 
 @media (max-width: 768px) {
   .app-header {
     margin-bottom: 25px;
+  }
+  
+  .logo-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .logo-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .title-container {
+    align-items: center;
   }
   
   .app-header h1 {
